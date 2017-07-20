@@ -76,9 +76,75 @@
 
         <!-- Introduction -->
 
+        <section id="warmup">
+          <section>
+            <h3>Let's Recap</h3>
+            <p>Find the __ in the following:</p>
+<pre><code class="PHP">
+</code></pre>
+          </section>
+        </section>
 
-<!--EOC 2-->
 
+
+<!--Walk through/Tutorial-->
+<section id="walkthrough">
+  <section>
+    <h3>Walkthrough</h3>
+    <p>We will create a database for a coffee shop</p>
+    <img src="img/coffee.jpg" alt="Cup of coffee"/>
+    <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/ahmedrabea/274197870/" target="_blank">Ahmed Rabea</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+  </section>
+  <section>
+    <h3>Let's Develop It</h3>
+    <p>Let's create our first database. Start up XAMPP/MAMP and go to <a href="http://localhost/phpmyadmin/" target="_blank">http://localhost/phpmyadmin/</a> (Windows) or <a href="http://localhost:8888/phpmyadmin/" target="_blank">http://localhost:8888/phpmyadmin/</a> (Mac)</p>
+    <p>The default username is <span class="blue">"root"</span>. The default password is either <span class="blue">""</span> (i.e., leave it blank) or <span class="blue">"root"</span>.</p>
+  </section>
+  <section>
+    <h3>Find the Database Option</h3>
+    <img src="img/phpMyAdmin-intro.png" alt="PHP MyAdmin intro screen"/>
+<pre><code class="sql">C:\wamp\bin\mysql\mysql15.6.12\bin&gt;mysql.exe -u root
+</code></pre>
+  </section>
+  <section>
+    <h3>Create a new DB called "coffee"</h3>
+    <img src="img/phpMyAdmin-createDB.png" alt="Create database screen"/>
+<pre><code class="sql">CREATE DATABASE coffee;
+</code></pre>
+  </section>
+  <section>
+    <h3>Select your database</h3>
+    <img src="img/phpMyAdmin-useDB.png" alt="Select the database"/>
+<pre><code class="sql">USE coffee;
+</code></pre>
+  </section>
+  <section>
+    <h3>Create a table called "product"</h3>
+    <img src="img/phpMyAdmin-createTable.png" alt="Create table screen"/>
+<pre><code class="sql">CREATE TABLE product (
+productID int,
+company varchar(255),
+type varchar(255),
+roast varchar(255),
+description text
+);
+</code></pre>
+  </section>
+  <section>
+    <h3>Add your columns</h3>
+    <ul>
+      <li>productID - int</li>
+      <li>company - varchar - 255</li>
+      <li>type - varchar - 255</li>
+      <li>roast - varchar - 255</li>
+      <li>description - text</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Add your columns</h3>
+    <img src="img/phpMyAdmin-createTableColumns.png" alt="Adding columns"/>
+  </section>
+</section>
 
 
 
@@ -126,6 +192,7 @@ VALUES (value1,value2,value3,...);
           </section>
           <section>
             <h3>Let's make a form!</h3>
+            <p>Open up <code>index.php</code> from class 2 files, or re-download <a href="class2-codesample.zip" target="_blank">here</a>
 <pre><code class="html">&lt;form action="product_insert_result.php" method="get"&gt;
   Company: &lt;input type="text" name="company"/&gt;&lt;br/&gt;
   Type: &lt;input type="text" name="type"/&gt;&lt;br/&gt;
