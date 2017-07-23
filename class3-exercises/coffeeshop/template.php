@@ -1,8 +1,8 @@
 <?php
-    include 'header.php';
+    include_once 'header.php';
 ?>
 <p>Your content here.</p>
 <?php
-    include 'sidebar.php';
-    include 'footer.php';  
+    include_once 'sidebar.php';
+    include_once 'footer.php';  
 ?>
