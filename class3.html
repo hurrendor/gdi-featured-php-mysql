@@ -76,12 +76,52 @@
 
         <!-- Introduction -->
 
-        <section id="warmup">
+        <section id="review">
           <section>
-            <h3>Let's Recap</h3>
-            <p>Find the __ in the following:</p>
-<pre><code class="PHP">
-</code></pre>
+            <h3>Let's Look Back</h3>
+            <img src="img/backwards-dance.jpg" alt="Woman looking backward as she dances"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/zeepack/4398082292/" target="_blank">Deepak Bhatia</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>Code Search</h3>
+            <p>In this code, spot the variables, comparison operators, logical operators control flow, loops:</p>
+<pre><code class="php">$username = 'Frank';
+if ($username) {
+  echo "<h2>Welcome $username!</h2>";
+} else {
+  echo "<h2 class="red">Please login!</h2>"
+}
+
+$formData = [
+  "First Name" => "Jane",
+  "Favorite Color" => ""
+];
+
+foreach($formData as $fieldName => $value) {
+  if (strlen($value) == 0 || !$value) {
+    $value = "Unset Value";
+  }
+  echo "$fieldName = $value <br />";
+} </code></pre>
+          </section>
+          <section>
+            <h3>MySQL Review - Data Types</h3>
+            <ul>
+              <li>VARCHAR - String up to 256 characters</li>
+              <li>INT - Integer of up to 11 characters</li>
+              <li>FLOAT - Decimal of any size</li>
+              <li>TEXT - Large amounts of text, no limit in size</li>
+              <li>DATE / TIME - date entries with specific formats</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Most Common SQL Commands</h3>
+            <ul>
+              <li>SELECT - get data from a database table</li>
+              <li>UPDATE - change data in a database table</li>
+              <li>DELETE - remove data from a database table</li>
+              <li>INSERT INTO - insert new data in a database tab</li>
+            </ul>
           </section>
         </section>
 
@@ -213,7 +253,7 @@ VALUES (value1,value2,value3,...);
           <section>
             <h3>Form processing</h3>
             <p>Create a new file called product_insert_result.php and place it in the same folder as index.php</p>
-<pre><code class="php">include 'db.inc.php';
+<pre><code class="php">require_once 'db.inc.php';
 $company = mysqli_real_escape_string($link, $_GET['company']);
 $type = mysqli_real_escape_string($link, $_GET['type']);
 $roast = mysqli_real_escape_string($link, $_GET['roast']);
@@ -222,7 +262,7 @@ $description = mysqli_real_escape_string($link, $_GET['description']);
           </section>
           <section>
             <h3>What just happened?</h3>
-            <p>We used an <span class="blue">include</span> command to reuse our "connect to DB" code. Then, we assigned the values from the form to variables. We used the command <span class="blue">mysqli_real_escape_string</span> to prep the data for MySQL, so it won't barf it back.</p>
+            <p>We used an <span class="blue">require_once</span> command to reuse our "connect to DB" code. Then, we assigned the values from the form to variables. We used the command <span class="blue">mysqli_real_escape_string</span> to prep the data for MySQL, so it won't barf it back.</p>
           </section>
           <section>
             <h3>Inserting data</h3>
@@ -243,7 +283,7 @@ header('Location:product_show.php');
           </section>
           <section>
             <h3>What just happened?</h3>
-            <p>We created a string called $sql and used it to build an SQL statement. (Note the careful use of quotes!) We then passed that string to the database, with an error message just in case. Finally, we told the form to send the user to product_show.php.</p>
+            <p>We created a string called <span class="blue">$sql</span> and used it to build an SQL statement. (Note the careful use of quotes!) We then passed that string to the database, with an error message just in case. Finally, we told the form to send the user to product_show.php.</p>
           </section>
         </section>
 
@@ -264,7 +304,7 @@ FROM table_name;
           <section>
             <h3>Building the select statement</h3>
             <p>Create a new file called product_show.php and place it in the same folder as index.php</p>
-<pre><code class="php">include 'db.inc.php';
+<pre><code class="php">require_once 'db.inc.php';
 $sql='SELECT productID, company, type, roast, description
 FROM product ORDER BY productID DESC';
 $result = mysqli_query($link, $sql);
@@ -277,7 +317,7 @@ if (!$result) {
           </section>
           <section>
             <h3>What just happened?</h3>
-            <p>Again, we used the <span class="blue">include</span> to reuse code. We followed the same process as before to send a request to the DB; make a statement, send it to the DB, and include an error message. We stored the results in a variable called <span class="blue">$result</span>.</p>
+            <p>Again, we used the <span class="blue">require_once</span> to reuse code. We followed the same process as before to send a request to the DB; make a statement, send it to the DB, and include an error message. We stored the results in a variable called <span class="blue">$result</span>.</p>
           </section>
           <section>
             <h3>Displaying data</h3>
@@ -320,10 +360,9 @@ echo 'Return to <a href="index.php">home</a>.'
   </section>
   <section>
     <h3>Application structure</h3>
-    <p>Some parts of your code are repeated over and over. We can move these into their own files and use <code class="">include</code> to call them.</p>
+    <p>Some parts of your code are repeated over and over. We can move these into their own files and use <span class="blue">include_once</span> to call them.</p>
     <ul>
       <li>header.php</li>
-      <li>sidebar.php</li>
       <li>footer.php</li>
     </ul>
   </section>
