@@ -363,6 +363,7 @@ echo 'Return to <a href="index.php">home</a>.'
     <p>Some parts of your code are repeated over and over. We can move these into their own files and use <span class="blue">include_once</span> to call them.</p>
     <ul>
       <li>header.php</li>
+      <li>sidebar.php</li>
       <li>footer.php</li>
     </ul>
   </section>
@@ -416,11 +417,7 @@ echo 'Return to <a href="index.php">home</a>.'
 <section>
   <section>
     <h3>Let's Develop It</h3>
-    <p>Let's edit first database. Start up WAMP/MAMP and go to <a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a> (Windows) or <a href="http://localhost:8888/phpmyadmin/">http://localhost:8888/phpmyadmin/</a> (Mac)</p>
-    <p>The default username is <span class="yellow">"root"</span>. The default password is either <span class="yellow">""</span> (i.e., leave it blank) or <span class="yellow">"root"</span>.</p>
-  </section>
-  <section>
-    <h3>Select the coffee database</h3>
+    <p>Let's edit our database. Back on your localhost/phpmyadmin, select the coffee database</p>
     <img src="img/phpMyAdmin-useDB.png" alt="Select the database"/>
 <pre><code class="sql">USE coffee;
 </code></pre>
@@ -456,6 +453,11 @@ PRIMARY KEY (companyID)
 </code></pre>
   </section>
   <section>
+    <h3>Select the products table</h3>
+    <p>Go to the <span class="blue">Structure</span> tab</p>
+    <img src="img/index-creation.png" alt="Select the products table" />
+  </section>
+  <section>
     <h3>Create an index on companyID_fk</h3>
     <img src="img/phpMyAdmin-addindex.png" alt="Add an index"/>
 <pre><code class="sql">ALTER TABLE product ADD INDEX (companyID_fk);
@@ -463,7 +465,8 @@ PRIMARY KEY (companyID)
   </section>
   <section>
     <h3>Open the product table and select relation view</h3>
-    <img src="img/phpMyAdmin-relationview.png" alt="Add an index"/>
+    <img src="img/propose-table-structure.png" alt="Add an index"/>
+    <!-- <img src="img/phpMyAdmin-relationview.png" alt="Add an index"/> -->
   </section>
   <section>
     <h3>Add a relationship</h3>
@@ -529,7 +532,7 @@ while($recording=mysqli_fetch_array($result)){
 
   <section>
     <h3>Let's Develop It</h3>
-    <p>Your sample code has a file called add-products.php. It is almost complete. Add code to the commented sections to get it to work.</p>
+    <p>Your new sample code has a file called add-products.php. It is almost complete. Add code to the commented sections to get it to work.</p>
     <p>Get stuck? Try looking at view-products.php to see how the while loop works there.</p>
   </section>
 </section>
@@ -640,46 +643,6 @@ while($recording=mysqli_fetch_array($result)){
     </ul>
   </section>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Final slides-->
-        <section id="final">
-          <section>
-            <h3>You did it!</h3>
-            <img src="img/fireworks.jpg" alt="Cup of coffee"/>
-            <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/markwdw85/9425240584/" target="_blank">Mark W.</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
-          </section>
-          <section>
-            <h3>Resources</h3>
-            <ul>
-              <li><a href="http://www.php.net/manual/en/" target="_blank">PHP Manual</a>, the official PHP documentation. Check the comments; they are useful.</li>
-              <li><a href="http://www.codecademy.com/tracks/php" target="_blank">Code Academy</a>, with interactive PHP lessons to help you review.</li>
-              <li><a href="http://www.w3schools.com/sql/default.asp" target="_blank">W3Schools SQL Tutorial</a>, a great guide to basic SQL.
-            </ul>
-          </section>
-        </section>
 
       </div>
       <footer>
